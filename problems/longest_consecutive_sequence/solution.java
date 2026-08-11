@@ -17,8 +17,8 @@ class Solution {
                 {   
                     i++;
                     Currcount++;
-                    longest=Math.max(Currcount,longest);
                 }
+                 longest=Math.max(Currcount,longest);
             }
         }
     return longest;
