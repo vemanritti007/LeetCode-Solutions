@@ -8,7 +8,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: JackieChen0208/LeetCode-Sync@main
+      - uses: joshcai/leetcode-sync@v1.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
