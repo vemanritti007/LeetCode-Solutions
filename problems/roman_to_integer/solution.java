@@ -1,7 +1,6 @@
 class Solution {
-    public static int value(char ch)
-    {
-        switch(ch){
+    public static int value(char c){
+        switch(c){
             case 'I' : return 1;
             case 'V' : return 5;
             case 'X' : return 10;
@@ -9,20 +8,19 @@ class Solution {
             case 'C' : return 100;
             case 'D' : return 500;
             case 'M' : return 1000;
-            default : return 0;
+            default : return 0;      
         }
     }
     public int romanToInt(String s) {
-        int len = s.length();
-        int ans=0;
-        for(int i=0;i<len;i++)
-        {
+        int ans=0,n=s.length();
+        for(int i=0;i<n;i++){
             char curr = s.charAt(i);
-            if(i<len-1 && value(curr)<value(s.charAt(i+1))) {
-            ans-=value(curr);
+            int val = value(curr);
+            if(i<n-1 && val < value(s.charAt(i+1))){
+                ans-=val;
             }
             else{
-            ans+=value(curr);
+                ans+=val;
             }
         }
         return ans;
