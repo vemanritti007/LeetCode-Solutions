@@ -1,15 +1,18 @@
 class Solution {
     public int numOfSubarrays(int[] arr) {
-    long count = 0, currSum = 0, n = arr.length;
-    HashMap<Integer,Integer> map = new HashMap<>();
-    map.put(0,1);
-    map.put(1,0);
-    for (int i = 0; i < n; i++) {
-        currSum += arr[i];
-        int parity = (int)((currSum % 2 + 2) % 2);
-        count += map.get(parity);
-        map.put(parity, map.get(parity) + 1);
+        int even=1,odd=0;
+        long sum=0,count=0;
+        for(int n : arr){
+            sum+=n;
+            if(sum%2==1){
+                count+=even;
+                odd++;
+            }
+            else{
+                count+=odd;
+                even++;
+            }
+        }
+        return (int)(count % 1000000007);
     }
-    return (int)(((n * (n + 1)) / 2 - count) % 1000000007);
-}
 }
